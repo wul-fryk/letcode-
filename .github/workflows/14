@@ -1,0 +1,20 @@
+class Solution:
+    def longestCommonPrefix(self, strs):
+        res = ''
+        stop = False
+        position = 0
+        for i in strs[0]:
+            for ele in strs:
+                print(position)
+                try:
+                    if i != ele[position]:
+                        stop = True
+                        break
+                except:
+                    return res
+            if stop == True:
+                break
+            position += 1
+            res += i 
+        return res
+    
