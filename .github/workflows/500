@@ -1,0 +1,29 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+
+        res = []
+        first = "qwertyuiop"
+        first_up = first.upper()
+        second = "asdfghjkl"
+        second_up = second.upper()
+
+        for element in words:
+            one = False
+            two = False
+            three = False
+            fake = False
+            for letter in element:
+                if letter in first or letter in first_up:
+                    one = True
+                elif letter in second or letter in second_up:
+                    two = True
+                else:
+                    three = True
+                    
+                if (one and two) is True or (one and three) is True or (two and three) is True:
+                    fake = True
+                    break
+            if fake is False:
+                res.append(element)
+                
+        return res
