@@ -1,0 +1,13 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        res = []
+        lenght = len(words)
+        for i in words[0]:
+            mem = 1
+            for n in range(1, lenght):
+                if i in words[n]:
+                    mem += 1
+                    words[n] = words[n].replace(i,'',1)
+            if mem == lenght:
+                res += i
+        return res
