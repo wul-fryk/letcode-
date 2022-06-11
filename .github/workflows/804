@@ -1,0 +1,13 @@
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        mors = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        alp = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+        combs = []
+        for word in words:
+            spel = ''
+            for letter in word:
+                idx = alp.index(letter)
+                spel += mors[idx]
+            if spel not in combs:
+                combs.append(spel)
+        return len(combs)
