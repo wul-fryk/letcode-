@@ -1,0 +1,14 @@
+class Solution:
+    def sortArrayByParityII(self, nums: List[int]) -> List[int]:
+        odd = 0
+        even = 1
+        res = []
+        for n in nums:
+            if n%2:
+                res.insert(even, n)
+                even += 2
+            else:
+                res.insert(odd, n)
+                odd += 2
+                
+        return res
