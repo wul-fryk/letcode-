@@ -1,0 +1,16 @@
+class Solution:
+    def wordPattern(self, patern: str, seq: str) -> bool:
+        seq = seq.split()
+        if len(patern) != len(seq):
+            return False
+        match = {}
+        for i in range(len(patern)):
+            if patern[i] not in match:
+                if seq[i] not in match.values():
+                    match[patern[i]] = seq[i]
+                else:
+                    return False
+            else:
+                if seq[i] != match[patern[i]]:
+                    return False
+        return True
